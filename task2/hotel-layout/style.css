@@ -1,0 +1,204 @@
+
+/* Apply box sizing to all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #222;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    background-color: #123c55;
+    color: white;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.header nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background-color: #dceef5;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+    color: #123c55;
+}
+
+.hero p {
+    color: #555;
+}
+
+/* Hotel section */
+.hotels-section,
+.gallery-section {
+    padding: 45px 5%;
+}
+
+.hotels-section h2,
+.gallery-section h2 {
+    margin-bottom: 25px;
+    color: #123c55;
+}
+
+/* 3/2/1 card grid */
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.hotel-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+
+    /* Flexbox inside card */
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.hotel-info {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+    flex: 1;
+}
+
+.hotel-info h3 {
+    margin-bottom: 8px;
+}
+
+.hotel-info p {
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.rating {
+    color: #e49b15 !important;
+}
+
+.hotel-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.book-btn {
+    display: inline-block;
+    background-color: #087eae;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.book-btn:hover {
+    background-color: #055d80;
+}
+
+/* Gallery using CSS Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Contact */
+.contact-section {
+    text-align: center;
+    padding: 45px 20px;
+    background-color: #dceef5;
+}
+
+.contact-section p {
+    margin: 15px 0;
+}
+
+footer {
+    background-color: #123c55;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Tablet: 2 cards */
+@media (max-width: 900px) {
+    .hotel-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile: 1 card */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .hotel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery img {
+        height: 220px;
+    }
+
+    .hotel-bottom {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

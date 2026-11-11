@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkyBook - Flight Search</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark brand-bg">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">SkyBook</a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Flights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#results">Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Section -->
+    <section class="search-section py-5">
+        <div class="container">
+            <h1 class="text-center mb-2">Find Your Perfect Flight</h1>
+            <p class="text-center text-secondary mb-4">
+                Search and book flights at the best prices.
+            </p>
+
+            <form class="search-box bg-white p-4 rounded shadow-sm"
+                id="flightForm">
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <label for="from" class="form-label">From</label>
+                        <input type="text" class="form-control"
+                            id="from" placeholder="Hyderabad"
+                            required>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <label for="to" class="form-label">To</label>
+                        <input type="text" class="form-control"
+                            id="to" placeholder="Bengaluru"
+                            required>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <label for="departure" class="form-label">
+                            Departure
+                        </label>
+                        <input type="date" class="form-control"
+                            id="departure" required>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <label for="return" class="form-label">
+                            Return
+                        </label>
+                        <input type="date" class="form-control"
+                            id="return">
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <label for="passengers" class="form-label">
+                            Passengers
+                        </label>
+                        <input type="number" class="form-control"
+                            id="passengers" min="1" max="9"
+                            value="1" required>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit"
+                            class="btn brand-button w-100">
+                            Search Flights
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Flight Results -->
+    <main class="container my-5" id="results">
+
+        <div class="d-flex justify-content-between align-items-center
+                    flex-wrap gap-2 mb-4">
+
+            <h2 class="mb-0">Available Flights</h2>
+
+            <!-- Mobile filter button -->
+            <button class="btn brand-button d-lg-none"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#filterSidebar">
+                Show Filters
+            </button>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Desktop Sidebar -->
+            <aside class="col-lg-3 d-none d-lg-block">
+                <div class="filter-card">
+                    <h4>Filters</h4>
+
+                    <h6 class="mt-4">Price Range</h6>
+                    <label for="priceRange">Maximum price</label>
+                    <input type="range" class="form-range"
+                        id="priceRange" min="2000" max="15000"
+                        value="15000">
+                    <p>₹2,000 - ₹15,000</p>
+
+                    <hr>
+
+                    <h6>Airlines</h6>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                            type="checkbox" id="indigo">
+                        <label class="form-check-label"
+                            for="indigo">IndiGo</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                            type="checkbox" id="airIndia">
+                        <label class="form-check-label"
+                            for="airIndia">Air India</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                            type="checkbox" id="vistara">
+                        <label class="form-check-label"
+                            for="vistara">Vistara</label>
+                    </div>
+
+                    <hr>
+
+                    <h6>Stops</h6>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                            type="checkbox" id="nonstop">
+                        <label class="form-check-label"
+                            for="nonstop">Non-stop</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                            type="checkbox" id="oneStop">
+                        <label class="form-check-label"
+                            for="oneStop">One stop</label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Flight Cards -->
+            <section class="col-lg-9">
+
+                <div class="flight-card card mb-3">
+                    <div class="card-body">
+                        <div class="row align-items-center g-3">
+
+                            <div class="col-12 col-md-3">
+                                <h5>IndiGo</h5>
+                                <small class="text-secondary">
+                                    6E - 203
+                                </small>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <h5>08:00 AM</h5>
+                                <small>Hyderabad</small>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <h5>09:30 AM</h5>
+                                <small>Bengaluru</small>
+                                <p class="small text-secondary mb-0">
+                                    1h 30m · Non-stop
+                                </p>
+                            </div>
+
+                            <div class="col-12 col-md-3">
+                                <h5>₹3,500</h5>
+                                <button class="btn brand-button w-100">
+                                    Book Now
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flight-card card mb-3">
+                    <div class="card-body">
+                        <div class="row align-items-center g-3">
+
+                            <div class="col-12 col-md-3">
+                                <h5>Air India</h5>
+                                <small class="text-secondary">
+                                    AI - 501
+                                </small>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <h5>10:00 AM</h5>
+                                <small>Hyderabad</small>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <h5>11:40 AM</h5>
+                                <small>Bengaluru</small>
+                                <p class="small text-secondary mb-0">
+                                    1h 40m · Non-stop
+                                </p>
+                            </div>
+
+                            <div class="col-12 col-md-3">
+                                <h5>₹4,200</h5>
+                                <button class="btn brand-button w-100">
+                                    Book Now
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flight-card card mb-3">
+                    <div class="card-body">
+                        <div class="row align-items-center g-3">
+
+                            <div class="col-12 col-md-3">
+                                <h5>Vistara</h5>
+                                <small class="text-secondary">
+                                    UK - 820
+                                </small>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <h5>02:00 PM</h5>
+                                <small>Hyderabad</small>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <h5>03:45 PM</h5>
+                                <small>Bengaluru</small>
+                                <p class="small text-secondary mb-0">
+                                    1h 45m · Non-stop
+                                </p>
+                            </div>
+
+                            <div class="col-12 col-md-3">
+                                <h5>₹5,000</h5>
+                                <button class="btn brand-button w-100">
+                                    Book Now
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Mobile Offcanvas Filters -->
+    <div class="offcanvas offcanvas-start"
+        tabindex="-1" id="filterSidebar"
+        aria-labelledby="filterTitle">
+
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="filterTitle">
+                Flight Filters
+            </h5>
+
+            <button type="button" class="btn-close"
+                data-bs-dismiss="offcanvas">
+            </button>
+        </div>
+
+        <div class="offcanvas-body">
+            <h6>Price Range</h6>
+            <input type="range" class="form-range"
+                min="2000" max="15000" value="15000">
+
+            <hr>
+
+            <h6>Airlines</h6>
+
+            <div class="form-check">
+                <input class="form-check-input"
+                    type="checkbox" id="mobileIndigo">
+                <label class="form-check-label"
+                    for="mobileIndigo">IndiGo</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input"
+                    type="checkbox" id="mobileAirIndia">
+                <label class="form-check-label"
+                    for="mobileAirIndia">Air India</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input"
+                    type="checkbox" id="mobileVistara">
+                <label class="form-check-label"
+                    for="mobileVistara">Vistara</label>
+            </div>
+
+            <hr>
+
+            <h6>Stops</h6>
+
+            <div class="form-check">
+                <input class="form-check-input"
+                    type="checkbox" id="mobileNonstop">
+                <label class="form-check-label"
+                    for="mobileNonstop">Non-stop</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input"
+                    type="checkbox" id="mobileOneStop">
+                <label class="form-check-label"
+                    for="mobileOneStop">One stop</label>
+            </div>
+
+            <button class="btn brand-button w-100 mt-4"
+                data-bs-dismiss="offcanvas">
+                Apply Filters
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="brand-bg text-white text-center py-4"
+        id="contact">
+        <p class="mb-0">
+            © 2026 SkyBook. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- Form demo interaction -->
+    <script>
+        document.getElementById("flightForm")
+            .addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                alert("Flight search submitted successfully!");
+            });
+    </script>
+
+</body>
+</html>
