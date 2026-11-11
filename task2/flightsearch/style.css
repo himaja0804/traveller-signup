@@ -1,0 +1,85 @@
+
+/* Brand colour variable */
+:root {
+    --brand-color: #087eae;
+    --brand-dark: #055d80;
+    --brand-light: #eaf5fa;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.brand-bg {
+    background-color: var(--brand-color);
+}
+
+/* Search section */
+.search-section {
+    background-color: var(--brand-light);
+}
+
+.search-section h1 {
+    color: var(--brand-dark);
+}
+
+.search-box {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.form-control:focus {
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 0.2rem rgba(8, 126, 174, 0.15);
+}
+
+/* Brand button */
+.brand-button {
+    background-color: var(--brand-color);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+}
+
+.brand-button:hover {
+    background-color: var(--brand-dark);
+    color: white;
+}
+
+/* Filter sidebar */
+.filter-card {
+    background-color: white;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+/* Flight cards */
+.flight-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s ease;
+}
+
+.flight-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+    .search-section h1 {
+        font-size: 25px;
+    }
+
+    .search-box {
+        padding: 18px !important;
+    }
+
+    .flight-card .card-body {
+        padding: 15px;
+    }
+}
