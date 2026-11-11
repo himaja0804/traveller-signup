@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Wishlist</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <h2>Travel Explorer</h2>
+
+        <div class="wishlist-counter">
+            ❤️ Wishlist:
+            <span id="wishlist-count" aria-live="polite">0</span>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <h1>Explore Destinations</h1>
+
+        <p>Find your favourite travel destinations.</p>
+
+        <label for="search">Search destinations</label>
+        <input
+            type="search"
+            id="search"
+            placeholder="Search destinations..."
+        >
+
+        <section id="product-list" class="product-grid">
+        </section>
+
+        <p id="no-results" hidden>
+            No matching destinations found.
+        </p>
+
+        <section class="alert-section">
+
+            <h2>Price Alert</h2>
+
+            <p>Get notified when your desired price is reached.</p>
+
+            <form id="price-alert-form">
+
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label for="target-price">Target Price (₹)</label>
+                <input
+                    type="number"
+                    id="target-price"
+                    placeholder="Enter target price"
+                    min="1"
+                    step="1"
+                    required
+                >
+
+                <button type="submit">Create Price Alert</button>
+
+                <p id="form-message" role="status"></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
