@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flight Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>✈ Flight Management System</h1>
+        <p>Find your perfect flight at the best price</p>
+    </header>
+
+    <main class="container">
+
+        <section class="filter-section">
+
+            <h2>Search & Filter Flights</h2>
+
+            <div class="filters">
+
+                <div class="filter-group">
+                    <label>Maximum Price (₹)</label>
+                    <input type="number" id="maxPrice" value="10000" min="0">
+                </div>
+
+                <div class="filter-group">
+                    <label>Maximum Stops</label>
+                    <select id="maxStops">
+                        <option value="2">All Flights</option>
+                        <option value="0">Non-stop</option>
+                        <option value="1">1 Stop</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Sort Flights</label>
+                    <select id="sortBy">
+                        <option value="default">Default</option>
+                        <option value="price">Price: Low to High</option>
+                        <option value="departure">Earliest Departure</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button id="searchBtn">Search Flights</button>
+
+                <button id="resetBtn" class="reset-btn">Reset</button>
+
+                <button id="cheapestBtn" class="cheapest-btn">
+                    Cheapest Per Airline
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="results-section">
+
+            <h2 id="resultTitle">Available Flights</h2>
+
+            <p id="flightCount"></p>
+
+            <div id="flightList" class="flight-list"></div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Flight Management System | JavaScript Assignment</p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+
+</body>
+</html>
