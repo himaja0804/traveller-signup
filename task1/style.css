@@ -68,3 +68,31 @@ button {
 button:hover {
     background: #055d80;
 }
+
+/* Form field hover effect */
+input:hover,
+select:hover {
+    border-color: #087eae;
+}
+
+/* Submit button effect */
+button {
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #055d80;
+    transform: translateY(-2px);
+}
+
+/* Mobile responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
